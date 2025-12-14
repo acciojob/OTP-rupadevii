@@ -15,7 +15,8 @@ for(let i=0; i<6; i++){
 	container.append(inputEl)
 }
 
-// container.children[0].focus();
+container.children[0].focus();
+
 function handleInput(e){
 	if(e.target.dataset.id <= 4 && e.inputType !== "deleteContentBackward"){
 		e.target.nextSibling.focus()
