@@ -10,18 +10,30 @@ for(let i=0; i<6; i++){
 	inputEl.min = "0";
 	inputEl.max = "9";
 	inputEl.addEventListener("input", handleInput);
+	inputEl.addEventListener("keydown", handleDelete);
 
 	container.append(inputEl)
 }
 
-container.children[0].focus();
-
+// container.children[0].focus();
 function handleInput(e){
-	if(e.target.dataset.id <= 4 && e.inputType !== "deleteContentBackward") e.target.nextSibling.focus()
+	if(e.target.dataset.id <= 4 && e.inputType !== "deleteContentBackward"){
+		e.target.nextSibling.focus()
+	}
 
-	if(e.inputType === "deleteContentBackward" && e.target.dataset.id > 0) e.target.previousSibling.focus();
 	 
 }
+
+function handleDelete(e){
+	if(e.key === "Backspace" && e.target.dataset.id >0){
+		e.preventDefault();
+		e.target.value = "";
+		e.target.previousSibling.focus()
+	}
+}
+
+
+
 
 
 
